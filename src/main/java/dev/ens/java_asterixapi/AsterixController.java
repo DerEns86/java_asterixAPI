@@ -9,25 +9,25 @@ import java.util.Optional;
 @RequestMapping("/asterix/characters")
 public class AsterixController {
 
-    private final CharacterRepo characterRepo;
+    private final CharacterService characterService;
 
-    public AsterixController(CharacterRepo characterRepo){
-        this.characterRepo = characterRepo;
+    public AsterixController(CharacterService characterService) {
+        this.characterService = characterService;
     }
 
     @GetMapping
     public List<AsterixCharacter> getAllCharacters(){
-        return characterRepo.findAll();
+        return characterService.getAllCharacters();
     }
 
     @GetMapping("{id}")
-    public Optional<AsterixCharacter> getSingleCharacterId(@PathVariable String id){
-        return characterRepo.findById(id);
+    public AsterixCharacter getSingleCharacterId(@PathVariable String id){
+        return characterService.getCharacterById(id);
     }
 
     @PostMapping("new")
     public AsterixCharacter saveCharacter(@RequestBody AsterixCharacter character) {
-        characterRepo.save(new AsterixCharacter(character.id(), character.name(), character.age(), character.profession()));
+       characterService.saveCharacter(character);
         return character;
     }
 }
