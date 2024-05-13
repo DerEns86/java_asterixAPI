@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class JavaAsterixApiApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(JavaAsterixApiApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(JavaAsterixApiApplication.class, args);
+    }
 
 }
