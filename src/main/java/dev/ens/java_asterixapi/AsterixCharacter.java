@@ -1,6 +1,6 @@
 package dev.ens.java_asterixapi;
 
-public record Character(
+public record AsterixCharacter(
         String id,
         String name,
         int age,
